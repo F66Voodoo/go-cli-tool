@@ -2,6 +2,10 @@ package service
 
 import "fmt"
 
-func PrintStartMessage() {
-	fmt.Println("go-cli-tool started")
+func PrintStartMessage(name string) {
+	if name == "" {
+		fmt.Println("go-cli-tool started")
+		return
+	}
+	fmt.Println("go-cli-tool started,", name)
 }
