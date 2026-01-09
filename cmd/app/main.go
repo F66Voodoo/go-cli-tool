@@ -22,13 +22,14 @@ func main() {
 		fmt.Fprintln(os.Stderr, "  go run ./cmd/app --help")
 	}
 
-	showVersion := flag.Bool("version", false, "show version")
+	showVersion := flag.Bool("version", false, "show version and exit")
+	name := flag.String("name", "", "print name in start message")
 	flag.Parse()
 
 	if *showVersion {
 		fmt.Println("go-cli-tool", service.Version())
 		return
 	}
-	service.PrintStartMessage()
+	service.PrintStartMessage(*name)
 	fmt.Println("version", service.Version())
 }
